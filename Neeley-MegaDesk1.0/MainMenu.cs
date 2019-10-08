@@ -22,24 +22,22 @@ namespace Neeley_MegaDesk1._0
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void AddQuoteButton_Click(object sender, EventArgs e)
         {
-            Application.Run(new AddQuote());
+            Form addQuote = new AddQuote();
+            addQuote.Show();
         }
 
         private void ViewQuotesButton_Click(object sender, EventArgs e)
         {
-            Application.Run(new ViewAllQuotes());
+            Form viewQuotes = new ViewAllQuotes();
+            viewQuotes.Show();
         }
 
         private void SearchQuotesButton_Click(object sender, EventArgs e)
         {
-            Application.Run(new SearchQoutes());
-        }
-
-        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
+            Form searchQuotes = new SearchQuotes();
+            searchQuotes.Show();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

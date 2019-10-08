@@ -1,6 +1,6 @@
 ﻿namespace Neeley_MegaDesk1._0
 {
-    partial class SearchQoutes
+    partial class SearchQuotes
     {
         /// <summary>
         /// Required designer variable.

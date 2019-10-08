@@ -52,6 +52,8 @@
     <Compile Include="AddQuote.Designer.cs">
       <DependentUpon>AddQuote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Desk.cs" />
+    <Compile Include="DeskQuote.cs" />
     <Compile Include="DisplayQuote.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,11 +68,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchQoutes.cs">
+    <Compile Include="RushDays.cs" />
+    <Compile Include="SearchQuotes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchQoutes.Designer.cs">
-      <DependentUpon>SearchQoutes.cs</DependentUpon>
+    <Compile Include="SearchQuotes.Designer.cs">
+      <DependentUpon>SearchQuotes.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewAllQuotes.cs">
       <SubType>Form</SubType>
@@ -78,6 +81,9 @@
     <Compile Include="ViewAllQuotes.Designer.cs">
       <DependentUpon>ViewAllQuotes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddQuote.resx">
+      <DependentUpon>AddQuote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +97,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\Desk.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

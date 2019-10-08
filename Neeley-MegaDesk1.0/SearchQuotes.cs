@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Neeley_MegaDesk1._0
 {
-    public partial class SearchQoutes : Form
+    public partial class SearchQuotes : Form
     {
-        public SearchQoutes()
+        public SearchQuotes()
         {
             InitializeComponent();
         }
