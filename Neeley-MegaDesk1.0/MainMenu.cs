@@ -21,5 +21,36 @@ namespace Neeley_MegaDesk1._0
         {
 
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Application.Run(new AddQuote());
+        }
+
+        private void ViewQuotesButton_Click(object sender, EventArgs e)
+        {
+            Application.Run(new ViewAllQuotes());
+        }
+
+        private void SearchQuotesButton_Click(object sender, EventArgs e)
+        {
+            Application.Run(new SearchQoutes());
+        }
+
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Exit Application?", "Confirm Close", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
+
