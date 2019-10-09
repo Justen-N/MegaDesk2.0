@@ -37,15 +37,15 @@ namespace Neeley_MegaDesk1._0
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             try {
-                quote.desk.DeskDepth = (int)DepthDropdown.Value;
-                quote.desk.DeskDepth = (int)WidthDropdown.Value;
-                quote.desk.NumDrawers = (int)NumDrawerSelect.Value;
+                this.desk.DeskDepth = (int)DepthDropdown.Value;
+                this.desk.DeskDepth = (int)WidthDropdown.Value;
+                this.desk.NumDrawers = (int)NumDrawerSelect.Value;
                 SurfaceMaterial material;
                 Enum.TryParse<SurfaceMaterial>(SurfaceMaterialDropDown.SelectedValue.ToString(), out material);
-                quote.desk.Material = material;
-                quote.FirstName = FirstNameInput.Text;
-                quote.LastName = LastNameInput.Text;
-                quote.NumRushDays = (int)ShippingDays.SelectedValue;
+                this.desk.Material = material;
+                this.FirstName = FirstNameInput.Text;
+                this.LastName = LastNameInput.Text;
+                this.NumRushDays = (int)ShippingDays.SelectedValue;
 
                 TotalPriceDisplay.Text = quote.calculatePrice().ToString();
                 CalculateButton.Enabled = false;
