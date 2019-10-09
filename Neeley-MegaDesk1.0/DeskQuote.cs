@@ -14,6 +14,7 @@ namespace Neeley_MegaDesk1._0
         public int NumRushDays { get; set; }
         public DateTime DateOrdered { get; set; }
         public decimal TotalPrice { get; set; }
+        const decimal BASE_SURFACE_PRICE = 1;
 
         public DeskQuote()
         {
@@ -27,7 +28,7 @@ namespace Neeley_MegaDesk1._0
             var surfaceArea = desk.CalculateSurfaceArea();
             if (surfaceArea > 1000)
             {
-                TotalPrice += surfaceArea;
+                TotalPrice += (surfaceArea -1000) * BASE_SURFACE_PRICE;
             }
             TotalPrice += 50 * desk.NumDrawers;
             switch(desk.Material)
