@@ -63,16 +63,6 @@ namespace Neeley_MegaDesk1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap chair_desk_furniture_1957477 {
-            get {
-                object obj = ResourceManager.GetObject("chair-desk-furniture-1957477", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap chair_desk_furniture_optimized {
             get {
                 object obj = ResourceManager.GetObject("chair-desk-furniture-optimized", resourceCulture);

@@ -112,8 +112,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\chair-desk-furniture-optimized.jpg" />
-    <None Include="bin\chair-desk-furniture-1957477.jpg" />
+    <Content Include="bin\chair-desk-furniture-optimized.jpg" />
     <Content Include="Properties\chair-desk-furniture-1957477.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
