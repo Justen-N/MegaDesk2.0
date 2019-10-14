@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace Neeley_MegaDesk1._0
         public DateTime DateOrdered { get; set; }
         public decimal TotalPrice { get; set; }
         const decimal BASE_SURFACE_PRICE = 1;
-
+        public int[,] _RushShippingPrices { get; set; }
         public DeskQuote()
         {
             desk = new Desk();
@@ -52,6 +53,36 @@ namespace Neeley_MegaDesk1._0
             TotalPrice += calculateRush(surfaceArea);
             return TotalPrice;
         }
+        private void getRushPrices()
+        {
+            _RushShippingPrices = new int[3,3];
+
+            var priceFile = @"rushOrderPrices.txt";
+            try
+            {
+                int i=0,j=0;
+                string[] prices = File.ReadAllLines(priceFile);
+                foreach(string price in prices)
+                {
+                    _RushShippingPrices[i,j]= int.Parse(price);
+
+                    if (j==2)
+                    {
+                        i++;
+                        j = 0;
+                    }
+                    else
+                    {
+                        j++;
+                    }
+                }
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
         public decimal calculateRush(int area)
         {
             
@@ -60,11 +91,11 @@ namespace Neeley_MegaDesk1._0
                 switch (NumRushDays)
                 {
                     case 7:
-                        return 30;
+                        return _RushShippingPrices[0,2];
                     case 5:
-                        return 40;
+                        return _RushShippingPrices[0,1];
                     case 3:
-                        return 60;
+                        return _RushShippingPrices[0,0];
                     default:
                         return 0;
                 }
@@ -75,11 +106,11 @@ namespace Neeley_MegaDesk1._0
                 switch (NumRushDays)
                 {
                     case 7:
-                        return 35;
+                        return _RushShippingPrices[1,2];
                     case 5:
-                        return 50;
+                        return _RushShippingPrices[1,1];
                     case 3:
-                        return 70;
+                        return _RushShippingPrices[1,0];
                     default:
                         return 0;
                 }
@@ -90,11 +121,11 @@ namespace Neeley_MegaDesk1._0
                 switch (NumRushDays)
                 {
                     case 7:
-                        return 40;
+                        return _RushShippingPrices[2,2];
                     case 5:
-                        return 60;
+                        return _RushShippingPrices[2,1];
                     case 3:
-                        return 80;
+                        return _RushShippingPrices[2,0];
                     default:
                         return 0;
                 }
