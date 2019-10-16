@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Neeley_MegaDesk1._0
 {
@@ -17,6 +18,7 @@ namespace Neeley_MegaDesk1._0
         public decimal TotalPrice { get; set; }
         const decimal BASE_SURFACE_PRICE = 1;
         public int[,] _RushShippingPrices { get; set; }
+        public List<DeskQuote> Quotes;
         public DeskQuote()
         {
             desk = new Desk();
@@ -131,6 +133,20 @@ namespace Neeley_MegaDesk1._0
                 }
 
             }
+        }
+        public List<DeskQuote> GetCurrentQuotes()
+        {
+            string currentQuote = File.ReadAllText("quotes.json");
+            
+            if (!string.IsNullOrEmpty(currentQuote))
+            {
+                Quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(currentQuote);
+            }
+            return Quotes;
+        }
+        public void AddQuote()
+        {
+            
         }
     }
 }

@@ -64,5 +64,9 @@ namespace Neeley_MegaDesk1._0
             ValidateDisplay.Visible = false;
             CalculateButton.Enabled = true;
         }
+        private void AcceptButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

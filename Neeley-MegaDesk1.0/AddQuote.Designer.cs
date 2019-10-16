@@ -1,4 +1,6 @@
-﻿namespace Neeley_MegaDesk1._0
+﻿using System;
+
+namespace Neeley_MegaDesk1._0
 {
     partial class AddQuote
     {
@@ -207,6 +209,9 @@
             this.AcceptButton.TabIndex = 13;
             this.AcceptButton.Text = "Accept Quote";
             this.AcceptButton.UseVisualStyleBackColor = true;
+            this.AcceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
+
+        
             // 
             // NumDrawersLabel
             // 
@@ -333,6 +338,8 @@
             this.PerformLayout();
 
         }
+
+
 
         #endregion
 
