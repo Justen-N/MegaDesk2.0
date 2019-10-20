@@ -38,7 +38,7 @@ namespace Neeley_MegaDesk1._0
         {
             try {
                 quote.desk.DeskDepth = (int)DepthDropdown.Value;
-                quote.desk.DeskDepth = (int)WidthDropdown.Value;
+                quote.desk.DeskWidth = (int)WidthDropdown.Value;
                 quote.desk.NumDrawers = (int)NumDrawerSelect.Value;
                 SurfaceMaterial material;
                 Enum.TryParse<SurfaceMaterial>(SurfaceMaterialDropDown.SelectedValue.ToString(), out material);
