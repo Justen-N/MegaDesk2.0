@@ -64,5 +64,17 @@ namespace Neeley_MegaDesk1._0
             ValidateDisplay.Visible = false;
             CalculateButton.Enabled = true;
         }
+
+        private void AcceptButton_Click(object sender, EventArgs e)
+        {
+            quote.SerializeQoute(quote);
+            Close();
+        }
+
+        private void AddQuote_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+        }
     }
 }

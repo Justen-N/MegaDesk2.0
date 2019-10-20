@@ -207,6 +207,7 @@
             this.AcceptButton.TabIndex = 13;
             this.AcceptButton.Text = "Accept Quote";
             this.AcceptButton.UseVisualStyleBackColor = true;
+            this.AcceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
             // NumDrawersLabel
             // 
@@ -322,6 +323,7 @@
             this.Controls.Add(this.FirstNameInput);
             this.Name = "AddQuote";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddQuote_FormClosing);
             this.Load += new System.EventHandler(this.AddQuote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.WidthDropdown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DepthDropdown)).EndInit();
