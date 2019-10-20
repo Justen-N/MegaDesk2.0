@@ -23,6 +23,7 @@ namespace Neeley_MegaDesk1._0
             desk = new Desk();
             DateOrdered = DateTime.Now;
             TotalPrice = 200;
+            getRushPrices();
         }
 
         public decimal calculatePrice()
