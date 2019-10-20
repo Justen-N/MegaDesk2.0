@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Neeley_MegaDesk1._0
 {
@@ -132,5 +133,52 @@ namespace Neeley_MegaDesk1._0
 
             }
         }
+
+        public List<DeskQuote> DeserializeQuotes(Stream stream)
+            {
+            var jsonSeralizer = new JsonSerializer();
+            List<DeskQuote> quotes;
+            using (StreamReader streamReader = new StreamReader(stream, Encoding.UTF8, false, 1, true))
+            using (JsonTextReader reader = new JsonTextReader(streamReader))
+            {
+                quotes = jsonSeralizer.Deserialize<List<DeskQuote>>(reader);
+            }
+
+            return quotes;
+
+            }
+        public void SerializeQoute(DeskQuote quote)
+            {
+                List<DeskQuote> quotesList;
+
+            var jsonSeralizer = new JsonSerializer();
+            jsonSeralizer.Formatting = Formatting.Indented;
+                
+              try
+            {
+                FileStream stream = File.Open("quotes.json",FileMode.OpenOrCreate);
+                if (stream.Length > 0)
+                    {
+                        quotesList = DeserializeQuotes(stream);
+
+                    }
+                else
+                    {
+                        quotesList = new List<DeskQuote>();
+                    }
+                quotesList.Add(quote);
+
+                using (StreamWriter sw = new StreamWriter(stream))
+                using (JsonTextWriter writer = new JsonTextWriter(sw))
+                {
+                    jsonSeralizer.Serialize(writer, quotesList);
+                }
+
+            }
+            catch
+            {
+            }
+
+            }
     }
 }
