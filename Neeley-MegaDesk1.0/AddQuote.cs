@@ -38,7 +38,7 @@ namespace Neeley_MegaDesk1._0
         {
             try {
                 quote.desk.DeskDepth = (int)DepthDropdown.Value;
-                quote.desk.DeskDepth = (int)WidthDropdown.Value;
+                quote.desk.DeskWidth = (int)WidthDropdown.Value;
                 quote.desk.NumDrawers = (int)NumDrawerSelect.Value;
                 SurfaceMaterial material;
                 Enum.TryParse<SurfaceMaterial>(SurfaceMaterialDropDown.SelectedValue.ToString(), out material);
@@ -64,9 +64,17 @@ namespace Neeley_MegaDesk1._0
             ValidateDisplay.Visible = false;
             CalculateButton.Enabled = true;
         }
+
         private void AcceptButton_Click(object sender, EventArgs e)
         {
-            
+            quote.SerializeQoute(quote);
+            Close();
+        }
+
+        private void AddQuote_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
         }
     }
 }

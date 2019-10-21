@@ -16,5 +16,11 @@ namespace Neeley_MegaDesk1._0
         {
             InitializeComponent();
         }
+
+        private void SearchQuotes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+        }
     }
 }

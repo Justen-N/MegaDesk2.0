@@ -25,19 +25,25 @@ namespace Neeley_MegaDesk1._0
         private void AddQuoteButton_Click(object sender, EventArgs e)
         {
             Form addQuote = new AddQuote();
+            addQuote.Tag = this;
             addQuote.Show();
+            Hide();
         }
 
         private void ViewQuotesButton_Click(object sender, EventArgs e)
         {
             Form viewQuotes = new ViewAllQuotes();
+            viewQuotes.Tag = this;
             viewQuotes.Show();
+            Hide();
         }
 
         private void SearchQuotesButton_Click(object sender, EventArgs e)
         {
             Form searchQuotes = new SearchQuotes();
+            searchQuotes.Tag = this;
             searchQuotes.Show();
+            Hide();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
