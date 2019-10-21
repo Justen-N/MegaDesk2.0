@@ -28,20 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.searchAllQuotesGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.searchAllQuotesGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // searchAllQuotesGridView
+            // 
+            this.searchAllQuotesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.searchAllQuotesGridView.Location = new System.Drawing.Point(12, 12);
+            this.searchAllQuotesGridView.Name = "searchAllQuotesGridView";
+            this.searchAllQuotesGridView.Size = new System.Drawing.Size(776, 426);
+            this.searchAllQuotesGridView.TabIndex = 0;
             // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.searchAllQuotesGridView);
             this.Name = "SearchQuotes";
             this.Text = "SearchQoutes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchQuotes_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.searchAllQuotesGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView searchAllQuotesGridView;
     }
 }

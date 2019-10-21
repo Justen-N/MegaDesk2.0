@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Neeley_MegaDesk1._0
 {
@@ -18,7 +19,6 @@ namespace Neeley_MegaDesk1._0
         public decimal TotalPrice { get; set; }
         const decimal BASE_SURFACE_PRICE = 1;
         public int[,] _RushShippingPrices { get; set; }
-        public List<DeskQuote> Quotes;
         public DeskQuote()
         {
             desk = new Desk();
@@ -138,36 +138,59 @@ namespace Neeley_MegaDesk1._0
          * Make sure to dispose of the stream after the call. The original stream is disposed
          * automatically by the StreamWriter in SerializeQuote. 
         */
-        public List<DeskQuote> DeserializeQuotes(Stream stream)
+        public List<DeskQuote> DeserializeQuotes()
         {
             var jsonSeralizer = new JsonSerializer();
             List<DeskQuote> quotes;
-            using (StreamReader streamReader = new StreamReader(stream, Encoding.UTF8, false, 1, true))
-            using (JsonTextReader reader = new JsonTextReader(streamReader))
+            //using (StreamReader streamReader = new StreamReader(stream, Encoding.UTF8, false, 1, true))
+            //using (JsonTextReader reader = new JsonTextReader(streamReader))
+            using (StreamReader sr = new StreamReader("quotes.Json"))
             {
-                quotes = jsonSeralizer.Deserialize<List<DeskQuote>>(reader);
+                string json = sr.ReadToEnd();
+                
+                //quotes = jsonSeralizer.Deserialize<List<DeskQuote>>(reader);
+                quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(json);
             }
 
             return quotes;
 
         }
-        public void SerializeQoute(DeskQuote quote)
+
+        private bool IsFileValid(string filePath)
+        {
+            bool isValid = true;
+            if (!File.Exists(filePath))
+            {
+                isValid = false;
+            }
+            else if (Path.GetExtension(filePath).ToLower() != ".json")
+            {
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        public void SerializeQuote(DeskQuote quote)
         {
             List<DeskQuote> quotesList;
+                        
+            if (!IsFileValid("quotes.Json"))
+            {
+                
+                quotesList = new List<DeskQuote>();
+            }
+            else
+            {
+                quotesList = DeserializeQuotes();
+                quotesList.Add(quote);
+            }
+
+            //var JsonOutput = JsonConvert.SerializeObject(quotesList, Formatting.Indented);
 
             var jsonSeralizer = new JsonSerializer();
             jsonSeralizer.Formatting = Formatting.Indented;
             FileStream stream = File.Open("quotes.json", FileMode.OpenOrCreate);
-            if (stream.Length > 0)
-            {
-                quotesList = DeserializeQuotes(stream);
-
-            }
-            else
-            {
-                quotesList = new List<DeskQuote>();
-            }
-            quotesList.Add(quote);
 
             using (StreamWriter sw = new StreamWriter(stream))
             using (JsonTextWriter writer = new JsonTextWriter(sw))

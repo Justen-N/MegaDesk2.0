@@ -67,7 +67,7 @@ namespace Neeley_MegaDesk1._0
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
-            quote.SerializeQoute(quote);
+            quote.SerializeQuote(quote);
             Close();
         }
 

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Neeley_MegaDesk1._0
+﻿namespace Neeley_MegaDesk1._0
 {
     partial class AddQuote
     {
@@ -337,8 +335,6 @@ namespace Neeley_MegaDesk1._0
             this.PerformLayout();
 
         }
-
-
 
         #endregion
 
