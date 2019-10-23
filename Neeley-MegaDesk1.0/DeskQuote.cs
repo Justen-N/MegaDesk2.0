@@ -179,6 +179,7 @@ namespace Neeley_MegaDesk1._0
             {
                 
                 quotesList = new List<DeskQuote>();
+                quotesList.Add(quote);
             }
             else
             {
@@ -186,7 +187,6 @@ namespace Neeley_MegaDesk1._0
                 quotesList.Add(quote);
             }
 
-            //var JsonOutput = JsonConvert.SerializeObject(quotesList, Formatting.Indented);
 
             var jsonSeralizer = new JsonSerializer();
             jsonSeralizer.Formatting = Formatting.Indented;

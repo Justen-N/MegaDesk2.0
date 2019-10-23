@@ -34,6 +34,7 @@
             // 
             // searchAllQuotesGridView
             // 
+            this.searchAllQuotesGridView.AccessibleName = "searchAllQuotesGridView";
             this.searchAllQuotesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchAllQuotesGridView.Location = new System.Drawing.Point(12, 12);
             this.searchAllQuotesGridView.Name = "searchAllQuotesGridView";

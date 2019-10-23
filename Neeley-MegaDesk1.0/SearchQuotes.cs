@@ -17,6 +17,7 @@ namespace Neeley_MegaDesk1._0
         public SearchQuotes()
         {
             InitializeComponent();
+            CheckValidFile();
         }
 
         private void SearchQuotes_FormClosing(object sender, FormClosingEventArgs e)
@@ -25,6 +26,7 @@ namespace Neeley_MegaDesk1._0
             mainMenu.Show();
         }
 
+        // Load the Json File and display
         private void CheckValidFile()
         {
             if (!IsFileValid("quotes.Json"))
